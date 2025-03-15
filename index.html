@@ -82,6 +82,15 @@
             width: 100%;
         }
     </style>
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.querySelector("#contact-form input[type='text']").value;
+            let message = document.querySelector("#contact-form textarea").value;
+            let whatsappLink = `https://wa.me/9817433687?text=Hello, my name is ${encodeURIComponent(name)}. ${encodeURIComponent(message)}`;
+            window.location.href = whatsappLink;
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -134,7 +143,12 @@
 
     <section id="contact">
         <h2>Contact Us</h2>
-        <a aria-label="Chat on WhatsApp" href="https://wa.me/919817433687"> 
+        <form id="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <a aria-label="Chat on WhatsApp" href="https://wa.me/917206916917"> 
             <img alt="Chat on WhatsApp" src="WhatsAppButtonGreenLarge.png" />
         </a>
     </section>
